@@ -15,14 +15,13 @@ app.use(express.static(path.join(__dirname, '..')));
 import { getCoordinates, getWeather } from "./weatherAPI.js";
 
 // const folderPath = './Immagini sito';
-const folderPath = path.join(__dirname, '../src/assets/Immagini sito');
+const folderPath = path.join(__dirname, '../src/assets/Immagini_sito');
 
 app.get('/get-filenames', (req, res) => {
   fs.readdir(folderPath, (err, files) => {
     if (err) {
       return res.status(500).json({ error: 'Error reading folder' });
     }
-    console.log({ files });
     res.json({ files });
   });
 });

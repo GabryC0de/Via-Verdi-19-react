@@ -1,6 +1,8 @@
 import '../home_styles/slides.css';
 import { Link } from 'react-router';
 
+// import React, { useEffect } from 'react';
+
 function Slides({ imgURL }) {
 
     let infos = [
@@ -11,12 +13,12 @@ function Slides({ imgURL }) {
     ];
 
     return (
-        <div className="item" style={{ background: `url(./src/assets/Immagini sito/${imgURL})` }}>
+        <div className="item" style={{ background: `url(./src/assets/Immagini_sito/${imgURL})` }}>
             <div className="content">
                 <div className="name">{infos[0].name}</div>
                 <div className="description">
                     {infos[0].description}
-                    
+
                 </div>
                 <Link to="/gallery" className="gallery-link">
                     <button className="animated-button">

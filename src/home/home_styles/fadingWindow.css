@@ -4,7 +4,11 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    background: white;
+    /* background: white; */
+    background-image: url(https://www.citalia.com/-/media/Bynder/Citalia-destinations/Italy/Lakes/Lake-Garda/Riva-del-Garda/Riva-del-Garda-2024-Garden-Lake-View-Shutterstock-2289187207-edit.jpg?rev=09014d6d405d417f9c2b002d23e670d3&hash=15D19C14DC244AF223F844AD2C74CBA9&h=480.375&w=1081.5);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,10 +21,10 @@
     /* Allow scrolling through the overlay */
 }
 
-#frame{
+#frame {
     position: relative;
     margin-bottom: 70px;
-    
+
 }
 
 #frame::before {
@@ -29,9 +33,10 @@
     position: absolute;
     top: 55%;
     left: 50%;
-    width: 170%; /* Adjust to be bigger than the div */
+    width: 170%;
+    /* Adjust to be bigger than the div */
     height: 170%;
-    background-image: url('./pictures/leafFrame.png');
+    background-image: url('../../../public/pictures/leafFrame.png');
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -39,7 +44,7 @@
     z-index: -1;
 }
 
-#first-view{
+#first-view {
     margin-top: 100px;
 }
 
@@ -102,10 +107,12 @@
         opacity: 0.8;
         transform: translateY(0);
     }
+
     50% {
         opacity: 0.5;
         transform: translateY(5px);
     }
+
     100% {
         opacity: 0.8;
         transform: translateY(0);

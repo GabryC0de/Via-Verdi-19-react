@@ -1,0 +1,37 @@
+footer>h4 {
+    text-decoration: underline;
+}
+
+.foot-link {
+    color: rgb(0, 60, 255);
+}
+
+li {
+    color: white;
+}
+
+li>p,
+#contatti>h4,
+li>p>a {
+    color: white;
+}
+
+li>p>a {
+    text-decoration: none;
+}
+
+footer {
+    margin-top: 10px;
+    bottom: 0;
+    width: 100vw;
+    background-color: rgb(77, 75, 73, 0.955);
+    padding: 15px;
+}
+
+footer>div {
+    width: calc(100% - 30px);
+}
+
+footer>div>h4 {
+    margin: 10px 0;
+}

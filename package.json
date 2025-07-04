@@ -12,6 +12,7 @@
     "install:all": "npm install && cd server && npm install"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-react": "^0.14.2",
     "dotenv": "^17.0.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
