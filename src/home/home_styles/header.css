@@ -1,0 +1,54 @@
+/* header content */
+
+header {
+    z-index: 1;
+    position: relative;
+    height: 8.5vh;
+}
+
+#header-content {
+    display: flex;
+    position: fixed;
+    height: 61px;
+    min-width: 480px;
+    width: 35vw;
+    top: 1vh;
+    left: 31.5vw;
+    box-shadow: 0 10px 30px var(--shadow-color);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 50px;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+}
+
+#header-content:hover {
+    transform: translateY(2px);
+    box-shadow: 0 8px 20px var(--shadow-color);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    border-radius: 50px;
+    width: 33%;
+    height: 100%;
+}
+
+.logo {
+    border-radius: 50px;
+    aspect-ratio: 1/1;
+    max-height: 150%;
+}
+
+#weather-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+#weather-icon {
+    aspect-ratio: 1/1;
+    height: 80%;
+}
