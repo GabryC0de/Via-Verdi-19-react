@@ -14,6 +14,7 @@ function App() {
     fetch("http://localhost:3000/get-filenames")
       .then((res) => res.json())
       .then((data) => {
+        console.log("Files fetched");
         setFiles(data.files);
       })
       .catch((error) => {
@@ -24,19 +25,24 @@ function App() {
   useEffect(() => {
     let next = document.querySelector('.next');
     let prev = document.querySelector('.prev');
-    next.addEventListener("click", () => {
+
+    const handleNextClick = () => {
       let items = document.querySelectorAll(".item");
       document.querySelector(".slide").appendChild(items[0]);
-    });
+    };
 
-    prev.addEventListener("click", () => {
+    const handlePrevClick = () => {
       let items = document.querySelectorAll(".item");
       document.querySelector(".slide").prepend(items[items.length - 1]);
-    });
+    };
+
+    if (next) next.addEventListener("click", handleNextClick);
+    if (prev) prev.addEventListener("click", handlePrevClick);
+
     return () => {
-      next.removeEventListener("click", () => { });
-      prev.removeEventListener("click", () => { });
-    }
+      if (next) next.removeEventListener("click", handleNextClick);
+      if (prev) prev.removeEventListener("click", handlePrevClick);
+    };
   }, []);
 
   useEffect(() => {
@@ -95,8 +101,8 @@ function App() {
             </div>
           </div>
         </div>
-        <div class="details-container">
-          <div class="sections">
+        <div className="details-container">
+          <div className="sections">
             <div className="details-content">
               <div className="details-title">
                 <h1>APPARTAMENTO IMMERSO NEL VERDE</h1>
@@ -107,8 +113,8 @@ function App() {
                     Perfetto per chi ama la natura, con facile accesso a trasporti, musei e attività all’aperto.
                   </h3>
                 </div>
-                <div class="wheel">
-                  <section class="articles">
+                <div className="wheel">
+                  <section className="articles">
                     <DynamicCard imgURL={"https://eh9yb2jeac9.exactdn.com/wp-content/uploads/2020/02/12-via-ferrata-monte-colodri-360gardalife-1200x800.jpg?strip=all&lossy=1&ssl=1"}
                       title={"Panorama"}
                       description={"Rilassati con una vista mozzafiato sulle montagne! Un panorama che ti lascerà senza fiato, perfetto per i tuoi momenti di relax"}></DynamicCard>
@@ -126,7 +132,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div class="sections">
+          <div className="sections">
             <div className="details-content">
               <div className="details-title">
                 <h1>RIVA DEL GARDA</h1>
@@ -137,8 +143,8 @@ function App() {
                     montagna, dalla cultura locale alla gastronomia tipica.
                   </h3>
                 </div>
-                <div class="wheel">
-                  <section class="articles">
+                <div className="wheel">
+                  <section className="articles">
                     <DynamicCard imgURL={"https://www.garda-outdoors.com/wp-content/uploads/2021/02/copertinakite-768x511.jpg"}
                       title={"Sport acquatici"}
                       description={"Il Lago di Garda è famoso in tutto il mondo per il windsurf e la vela. Approfitta dei venti costanti per vivere emozioni uniche sull'acqua cristallina del lago."}></DynamicCard>

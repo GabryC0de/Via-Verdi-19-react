@@ -3,11 +3,11 @@ import '../home_styles/dynamicCards.css'
 function DynamicCard({ imgURL, title, description }) {
     return (
         <article>
-            <div class="article-wrapper">
+            <div className="article-wrapper">
                 <figure>
                     <img src={imgURL} alt="card" />
                 </figure>
-                <div class="article-body">
+                <div className="article-body">
                     <h2>
                         {title}
                     </h2>

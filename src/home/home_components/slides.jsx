@@ -1,8 +1,6 @@
 import '../home_styles/slides.css';
 import { Link } from 'react-router';
 
-// import React, { useEffect } from 'react';
-
 function Slides({ imgURL }) {
 
     let infos = [
