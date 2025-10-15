@@ -10,39 +10,21 @@ import Footer from './home/home_components/footer.jsx'
 function App() {
 
   const [files, setFiles] = useState([]);
+  // const [files, setFiles] = useState({ img: "", ID: 0 });
   useEffect(() => {
     fetch("http://localhost:3000/get-filenames")
       .then((res) => res.json())
       .then((data) => {
+        setFiles(data.files)
+        // data.forEach((file, index) => {
+        //   setFiles(prevFiles => [...prevFiles, { img: file, ID: index }]);
+        // })
         console.log("Files fetched");
-        setFiles(data.files);
+        // setFiles(data.files);
       })
       .catch((error) => {
         console.error("Errore durante la fetch:", error);
       });
-  }, []);
-
-  useEffect(() => {
-    let next = document.querySelector('.next');
-    let prev = document.querySelector('.prev');
-
-    const handleNextClick = () => {
-      let items = document.querySelectorAll(".item");
-      document.querySelector(".slide").appendChild(items[0]);
-    };
-
-    const handlePrevClick = () => {
-      let items = document.querySelectorAll(".item");
-      document.querySelector(".slide").prepend(items[items.length - 1]);
-    };
-
-    if (next) next.addEventListener("click", handleNextClick);
-    if (prev) prev.addEventListener("click", handlePrevClick);
-
-    return () => {
-      if (next) next.removeEventListener("click", handleNextClick);
-      if (prev) prev.removeEventListener("click", handlePrevClick);
-    };
   }, []);
 
   useEffect(() => {
@@ -72,6 +54,18 @@ function App() {
     scroll(); // avvia animazione
   });
 
+  // function reducer(state, action) {
+  //   switch (action.type) {
+  //     case 'INCREASE':
+  //       return (state.count >= files.length) ? { count: 0 } : { count: state.count + 1 }
+  //     case 'DECREASE':
+  //       return (state.count <= 0) ? { count: files.length - 1 } : { count: state.count - 1 }
+  //     default:
+  //       return { count: state.count };
+  //   }
+  // }
+
+  // const [click, dispatchClick] = useReducer(reducer, { count: 0 });
 
   return (
     <>
@@ -93,10 +87,32 @@ function App() {
                     </Slides>
                   ))
                 }
+                {/* {
+                  files.map((file, index) => (
+                    (index <= click.count + 4) ? <Slides
+                      key={index}
+                      imgURL={file}></Slides> : ""
+                  ))
+                } */}
               </div>
               <div className="button-wrapper">
-                <button className="prev"><i className="fa-solid fa-arrow-left"></i></button>
-                <button className="next"><i className="fa-solid fa-arrow-right"></i></button>
+
+                {/* <button className="prev" onClick={() => dispatchClick({ type: 'DECREASE' }) */}
+                <button className="prev" onClick={() => {
+
+                  let items = document.querySelectorAll(".item");
+                  document.querySelector(".slide").prepend(items[items.length - 1]);
+
+                }} > <i className="fa-solid fa-arrow-left"></i></button>
+
+                {/* <button className="next" onClick={() => dispatchClick({ type: 'INCREASE' }) */}
+                <button className="next" onClick={() => {
+
+                  let items = document.querySelectorAll(".item");
+                  document.querySelector(".slide").appendChild(items[0]);
+
+                }}><i className="fa-solid fa-arrow-right"></i></button>
+
               </div>
             </div>
           </div>
